@@ -3,7 +3,36 @@ import { useState, useRef, useEffect } from "react";
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const [currentText, setCurrentText] = useState("");
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentRole, setCurrentRole] = useState(0);
     const menuBurger = useRef(null);
+
+    const roles = [
+        "Developer Full Stack",
+        "Graphic Designer",
+        "Linux Administrator",
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const currentRoleText = roles[currentRole];
+
+            if (currentIndex < currentRoleText.length) {
+                setCurrentText((prevText) => prevText + currentRoleText[currentIndex]);
+                setCurrentIndex((prevIndex) => prevIndex + 1);
+            } else {
+                setTimeout(() => {
+                    setCurrentIndex(0);
+                    setCurrentRole((prevRole) => (prevRole + 1) % roles.length);
+                    setCurrentText("");
+                }, 1500);
+                clearInterval(interval);
+            }
+        }, 100);
+
+        return () => clearInterval(interval);
+    }, [currentIndex, currentRole]);
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -24,11 +53,14 @@ export default function Header() {
     }, [isOpen]);
 
     return (
-        <header className="bg-transparent p-4 shadow-md">
-            <div className="container mx-auto flex justify-between items-center">
-                <h1 className="text-xl font-bold text-violet-700">
-                    Alexis MENEZ - Master Lead Developer Full Stack
-                </h1>
+        <header className="bg-transparent p-4">
+            <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
+                
+            <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold">
+                <span className="block md:inline">Alexis MENEZ</span>
+                <span className="hidden md:inline"> -</span>
+                <span className="block md:inline text-white md:ml-2">{currentText}</span>
+            </h1>
 
                 <nav className="hidden md:flex space-x-6">
                     <Link href="#about" className="hover:text-purple-500">À propos</Link>
@@ -36,11 +68,12 @@ export default function Header() {
                     <Link href="#contact" className="hover:text-purple-500">Contact</Link>
                 </nav>
 
+                {/* Menu Burger Responsive */}
                 <div className="md:hidden relative" ref={menuBurger}>
                     <button onClick={() => setIsOpen(!isOpen)} className="btn btn-square btn-ghost">
                         {isOpen ? (
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                                <path strokeLinecap="round" trokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
                             </svg>
                         ) : (
                             <svg
@@ -51,7 +84,7 @@ export default function Header() {
                     </button>
 
                     {isOpen && (
-                        <ul className="absolute top-16 right-4 bg-black shadow-lg rounded-lg w-48 p-4 space-y-2 z-50">
+                        <ul className="absolute top-16 right-4 bg-black border border-white shadow-lg rounded-lg w-48 p-4 space-y-2 z-50">
                             <li>
                                 <Link href="#about" className="block py-2 hover:text-purple-500" onClick={() => setIsOpen(false)}>À propos</Link>
                             </li>
