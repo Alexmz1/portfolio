@@ -142,7 +142,11 @@ export default function About() {
                             <div className="timeline-start mb-10 md:text-end">
                                 <time className="font-mono italic">2020 - 2022</time>
                                 <div className="text-lg font-black">BTS Système Numérique Informatique et Résaux</div>
-                                Stage de 2 mois chez AXA France dans l'équipe de suivi de parcours informatique
+                                Stage de 2 mois chez AXA France dans l'équipe de suivi de parcours informatique<br />
+                                Découverte de l'exploitation d'un parc applicatif (Serveurs, Base de données...)<br />
+                                Développement et évolution de scripts XML<br />
+                                Montage vidéo pour des présentations<br />
+                                Monitoring applicatif et analyse de problèmes
                             </div>
                             <hr />
                         </li>
@@ -156,6 +160,7 @@ export default function About() {
                             <div className="timeline-end md:mb-10">
                                 <time className="font-mono italic">2022</time>
                                 <div className="text-lg font-black">EPSI</div>
+                                Python, Tests unitaires, RGPD
                             </div>
                             <hr />
                         </li>
@@ -169,6 +174,7 @@ export default function About() {
                             <div className="timeline-start mb-10 md:text-end">
                                 <time className="font-mono italic">2023</time>
                                 <div className="text-lg font-black">Formation Développeur d'Applications Informatique - Philiance formation</div>
+                                Java avec le framework Angular, Versionning (GIT), POO et architecture logicielle, PhpMyAdmin, SQL-MySQL (opérations CRUD), Hibernate, REST API (Springboot), HTML5, CSS3, Bootstrap 
                             </div>
                             <hr />
                         </li>
@@ -182,6 +188,10 @@ export default function About() {
                             <div className="timeline-end md:mb-10">
                                 <time className="font-mono italic">2023 - 2024</time>
                                 <div className="text-lg font-black">Bachelor Chef de Projet Digitaux option Dev. WEB - EEMI</div>
+                                Alternance chez Cegedim.Cloud au poste d'Administrateur Linux<br />
+                                Administration : Bases de données, système et stockage, backup<br />
+                                Scripting/Environnement : Bash, Shell-powershell, Python, Linux<br />
+                                Gestion des requêtes et incident et rédaction de documentation<br />
                             </div>
                             <hr />
                         </li>
@@ -195,6 +205,7 @@ export default function About() {
                             <div className="timeline-start mb-10 md:text-end">
                             <time className="font-mono italic">2024 - aujourd'hui</time>
                             <div className="text-lg font-black">Mastère Lead Développeur Full Stack - EEMI</div>
+                            Alternance chez Cegedim.Cloud au poste d'Administrateur Linux
                             </div>
                         </li>
                         </ul>
