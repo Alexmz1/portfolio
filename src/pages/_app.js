@@ -1,5 +1,15 @@
-import "@/styles/globals.css";
+import Head from 'next/head';
+import '../styles/globals.css'; // Si tu utilises des styles
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+function MyApp({ Component, pageProps }) {
+    return (
+        <>
+            <Head>
+                <title>Mon portfolio - Alexis</title> {/* Définit le titre global */}
+            </Head>
+            <Component {...pageProps} />
+        </>
+    );
 }
+
+export default MyApp;
