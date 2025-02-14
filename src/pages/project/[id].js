@@ -55,7 +55,7 @@ export default function ProjectDetail() {
                     {project.title}
                 </h1>
 
-                <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center justify-between">
+                <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
                     <div className="flex-shrink-0 w-full lg:w-1/2 mb-6 lg:mb-0">
                         <img src={project.image} alt={project.title} className="w-full h-auto max-h-96 object-contain rounded-lg"/>
                     </div>
