@@ -34,13 +34,27 @@ export default function ProjectDetail() {
     const { id, type } = router.query;
 
     if (!id || !type) {
-        return <p>Chargement...</p>;
+        return (
+            <div className="flex items-center justify-center h-screen bg-gradient-to-b from-black to-purple-950 text-white">
+                <div className="flex flex-col items-center space-y-4">
+                    <span className="loading loading-spinner loading-lg text-white"></span>
+                    <p className="text-white text-lg font-semibold">Chargement en cours...</p>
+                </div>
+            </div>
+        );
     }
 
     const project = getProjectByIdAndType(id, type);
 
     if (!project) {
-        return <p>Projet non trouvé</p>;
+        return (
+            <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-black to-purple-950 text-white">
+                <h1 className="text-3xl font-bold mb-6">Projet non trouvé</h1>
+                <button onClick={() => router.push('/')} className="px-6 py-3 bg-transparent border border-gray-300 text-white font-semibold rounded-lg shadow-md transition duration-300 hover:bg-white hover:text-black">
+                    Retour à l'accueil
+                </button>
+            </div>
+        );
     }
 
     return (
