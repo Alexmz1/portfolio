@@ -35,6 +35,9 @@ const Project = () => {
                                     <img src={project.image} alt={project.title} className="w-full h-48 sm:h-60 object-cover rounded-lg mb-4" />
                                     <h3 className="text-lg sm:text-xl font-semibold text-white">{project.title}</h3>
                                     <p className="text-gray-300 text-sm sm:text-base">{project.description}</p>
+                                    <span className="inline-block mt-4 px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-md hover:bg-purple-800 transition-colors">
+                                        Voir en détail
+                                    </span>
                                 </Link>
                             </div>
                         ))}
@@ -53,6 +56,9 @@ const Project = () => {
                                     <img src={project.image} alt={project.title} className="w-full h-48 sm:h-60 object-cover rounded-lg mb-4" />
                                     <h3 className="text-lg sm:text-xl font-semibold text-white">{project.title}</h3>
                                     <p className="text-gray-300 text-sm sm:text-base">{project.description}</p>
+                                    <span className="inline-block mt-4 px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-md hover:bg-purple-800 transition-colors">
+                                        Voir en détail
+                                    </span>
                                 </Link>
                             </div>
                         ))}
