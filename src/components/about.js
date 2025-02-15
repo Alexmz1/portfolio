@@ -39,7 +39,7 @@ export default function About() {
                 <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div className="card bg-gradient-to-r from-purple-900 to-black shadow-xl p-6">
                         <h3 className="text-xl md:text-2xl text-white">Langages et technologies</h3>
-                        <div className="mt-4 flex flex-wrap gap-5">
+                        <div className="mt-4 flex flex-wrap gap-5 text-white">
                             <div className="flex flex-col items-center">
                                 <FaHtml5 className="w-8 h-8 text-orange-500" />
                                 <span className="text-sm mt-2">HTML5</span>
@@ -85,7 +85,7 @@ export default function About() {
 
                     <div className="card bg-gradient-to-r from-purple-900 to-black shadow-xl p-6">
                         <h3 className="text-xl md:text-2xl text-white">Logiciels et Applications</h3>
-                        <div className="mt-4 flex flex-wrap gap-6">
+                        <div className="mt-4 flex flex-wrap gap-6 text-white">
                             <div className="flex flex-col items-center">
                                 <BiLogoVisualStudio className="w-8 h-8 text-blue-400" />
                                 <span className="text-sm mt-2">VS Code</span>
@@ -111,7 +111,7 @@ export default function About() {
 
                     <div className="card bg-gradient-to-r from-purple-900 to-black shadow-xl p-6">
                         <h3 className="text-xl md:text-2xl text-white">Systèmes d'exploitation</h3>
-                        <div className="mt-4 flex flex-wrap gap-8">
+                        <div className="mt-4 flex flex-wrap gap-8 text-white">
                             <div className="flex flex-col items-center">
                                 <FaWindows className="w-8 h-8 text-blue-500" />
                                 <span className="text-sm mt-2">Windows</span>
@@ -132,7 +132,7 @@ export default function About() {
                     <div style={{ fontFamily: 'Rosie Brown, serif' }}>
                         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-12 text-center">Mon parcours</h2>
                     </div>
-                    <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+                    <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical text-white">
                         <li>
                             <div className="timeline-middle">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
