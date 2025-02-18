@@ -60,9 +60,9 @@ export default function ProjectDetail() {
     return (
         <div className="flex flex-col min-h-screen bg-gradient-to-b from-black to-purple-950 text-white">
             <div className="flex-grow p-8">
-                <button className="flex items-center space-x-2 text-white text-lg mb-6 hover:text-gray-300" onClick={() => router.push('/')}>
+                <button className="flex items-center space-x-2 text-white text-lg mb-6 hover:text-gray-300" onClick={() => router.push('/#projects')}>
                     <ArrowLeft size={24} />
-                    <span>Retour à l'accueil</span>
+                    <span>Retourner aux projets</span>
                 </button>
 
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mt-8 mb-12 text-center" style={{ fontFamily: 'Rosie Brown, serif' }}>
