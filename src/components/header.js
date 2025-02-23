@@ -9,9 +9,9 @@ export default function Header() {
     const menuBurger = useRef(null);
 
     const roles = [
-        "Developer Full Stack",
+        "Développeur Full Stack",
         "Graphic Designer",
-        "Linux Administrator",
+        "Administrateur Linux",
     ];
 
     useEffect(() => {
