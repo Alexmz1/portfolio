@@ -35,12 +35,13 @@ const Contact = () => {
                     </h2>
                 </div>
 
+                <p className="text-white text-center mb-8">
+                    Vous pouvez me contacter via LinkedIn ou en utilisant le formulaire ci-dessous.
+                </p>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     {/* LEFT - LinkedIn */}
                     <div className="text-white flex flex-col items-center">
-                        <p className="mb-6 text-center">
-                            Vous pouvez me contacter via LinkedIn en cliquant sur le lien ci-dessous.
-                        </p>
                         <a
                             href="https://www.linkedin.com/in/menez-alexis/"
                             target="_blank"
