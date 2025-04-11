@@ -5,11 +5,29 @@ const Contact = () => {
     const form = useRef();
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
+    const [email, setEmail] = useState("");
+    const [isEmailValid, setIsEmailValid] = useState(true);
+
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    const handleEmailChange = (e) => {
+        const value = e.target.value;
+        setEmail(value);
+        setIsEmailValid(validateEmail(value));
+    };
 
     const sendEmail = (e) => {
         e.preventDefault();
         setSuccess(false);
         setError(false);
+
+        if (!isEmailValid) {
+            setError(true);
+            return;
+        }
 
         emailjs.sendForm(
             "service_gtud36g",
@@ -20,6 +38,8 @@ const Contact = () => {
         .then(() => {
             setSuccess(true);
             form.current.reset();
+            setEmail(""); // Reset email state
+            setIsEmailValid(true); // Reset email validity
         })
         .catch(() => {
             setError(true);
@@ -83,10 +103,19 @@ const Contact = () => {
                                 <input
                                     type="email"
                                     name="email"
+                                    value={email}
+                                    onChange={handleEmailChange}
                                     required
-                                    className="w-full p-3 rounded-lg border border-white bg-white/10 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white"
+                                    className={`w-full p-3 rounded-lg border ${
+                                        isEmailValid ? "border-white" : "border-red-500"
+                                    } bg-white/10 text-white placeholder-white focus:outline-none focus:ring-2 ${
+                                        isEmailValid ? "focus:ring-white" : "focus:ring-red-500"
+                                    }`}
                                     placeholder="Votre email"
                                 />
+                                {!isEmailValid && (
+                                    <p className="text-red-500 text-sm mt-1">Veuillez entrer un email valide.</p>
+                                )}
                             </div>
 
                             <div className="flex flex-col">
