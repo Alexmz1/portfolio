@@ -4,11 +4,13 @@ import Footer from "@/components/projectFooter";
 
 const devProjects = [
     { id: 1, type: "dev", title: "Portfolio", description: "Un portfolio individuel créé avec Next.js pour mettre en valeur mes compétences et réalisations. Ce projet propose des animations lisses, une navigation améliorée et une interface utilisateur contemporaine, assurant une expérience immersive pour les visiteurs. Son design minimaliste et épuré valorise les projets, les expériences de travail et les aptitudes techniques de façon précise et succincte.", 
-        image: "/images/developmentProject/portfolio.jpg", link: "https://github.com/Alexmz1/portfolio" },
-    { id: 2, type: "dev", title: "Money Wise", description: "Application de gestion financière personnelle conçue en PHP Symfony. Elle offre aux utilisateurs la possibilité de surveiller leurs revenus et leurs dépenses, et de gérer leur budget. Avec une interface intuitive et des fonctionnalités de filtrage, elle permet une gestion complète de vos finances.", 
-        image: "/images/developmentProject/moneyWise.png", link: "https://github.com/Alexmz1/bank-account" },
-    { id: 3, type: "dev", title: "Sneakers Card", description: "Carte avec un effet 3D interactive inspirée de l’univers des sneakers, développée en Swift. Ce projet met en avant des éléments de design réalistes, et une navigation intuitive pour plonger les utilisateurs dans un univers visuellement attrayant.", 
-        image: "/images/developmentProject/sneakersCard.jpg", link: "https://github.com/Alexmz1/sneakers-world" },
+        image: "/images/developmentProject/portfolio.jpg", github: "https://github.com/Alexmz1/portfolio" },
+    { id: 2, type: "dev", title: "Fleur de la Seine", description: "Site vitrine développé en pour une fleuriste, mettant en avant des compositions florales pour des événements tels que des deuils. Le site est conçu pour être à la fois esthétique et fonctionnel, offrant une navigation fluide et une présentation claire des services proposés.",
+        image: "/images/developmentProject/fleurDeLaSeine.png", url: "https://fleur-de-la-seine.fr/" },
+    { id: 3, type: "dev", title: "Money Wise", description: "Application de gestion financière personnelle conçue en PHP Symfony. Elle offre aux utilisateurs la possibilité de surveiller leurs revenus et leurs dépenses, et de gérer leur budget. Avec une interface intuitive et des fonctionnalités de filtrage, elle permet une gestion complète de vos finances.", 
+        image: "/images/developmentProject/moneyWise.png", github: "https://github.com/Alexmz1/bank-account" },
+    { id: 4, type: "dev", title: "Sneakers Card", description: "Carte avec un effet 3D interactive inspirée de l’univers des sneakers, développée en Swift. Ce projet met en avant des éléments de design réalistes, et une navigation intuitive pour plonger les utilisateurs dans un univers visuellement attrayant.", 
+        image: "/images/developmentProject/sneakersCard.jpg", github: "https://github.com/Alexmz1/sneakers-world" },
 ];
 
 const designProjects = [
@@ -76,11 +78,29 @@ export default function ProjectDetail() {
 
                     <div className="lg:w-1/2 pl-0 lg:pl- self-start">
                         <p className="text-lg mb-8">{project.description}</p>
-
-                        {project.type === "dev" && project.link && (
-                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-transparent border border-gray-300 text-white font-semibold rounded-lg shadow-md transition duration-300 hover:bg-white hover:text-black">
-                                Voir sur GitHub
-                            </a>
+                        {project.type === "dev" && (
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                {project.url && (
+                                    <a
+                                        href={project.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow-md transition duration-300 hover:bg-purple-800"
+                                    >
+                                        Voir le site
+                                    </a>
+                                )}
+                                {project.github && (
+                                    <a
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="px-6 py-3 bg-transparent border border-gray-300 text-white font-semibold rounded-lg shadow-md transition duration-300 hover:bg-white hover:text-black"
+                                    >
+                                        Voir sur GitHub
+                                    </a>
+                                )}
+                            </div>
                         )}
                     </div>
                 </div>
