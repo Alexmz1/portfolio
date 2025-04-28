@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Project = () => {
     const devProjects = [
-        { id: 1, type: "dev", title: "Portfolio", description: "Portfolio développé en Next.js", image: "/images/developmentProject/portfolio.jpg" },
+        { id: 1, type: "dev", title: "Portfolio", description: "Portfolio développé en Next.js", image: "/images/developmentProject/portfolio.png" },
         { id: 2, type: "dev", title: "Fleur de la seine", description: "Site vitrine de fleuriste pour des deuils", image: "/images/developmentProject/fleurDeLaSeine.png" },
         { id: 3, type: "dev", title: "Money Wise", description: "Application de gestion de dépenses et recettes développée en PHP Symfony", image: "/images/developmentProject/moneyWise.png" },
         { id: 4, type: "dev", title: "Sneakers Card", description: "Carte 3D liée à l'univers de la sneakers développée en Swift", image: "/images/developmentProject/sneakersCard.jpg" },
