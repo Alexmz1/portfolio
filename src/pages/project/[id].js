@@ -1,25 +1,89 @@
 import { useRouter } from 'next/router';
 import { ArrowLeft } from 'lucide-react';
 import Footer from "@/components/projectFooter";
+import { useState } from "react";
 
 const devProjects = [
-    { id: 1, type: "dev", title: "Portfolio", description: "Un portfolio individuel créé avec Next.js pour mettre en valeur mes compétences et réalisations. Ce projet propose des animations lisses, une navigation améliorée et une interface utilisateur contemporaine, assurant une expérience immersive pour les visiteurs. Son design minimaliste et épuré valorise les projets, les expériences de travail et les aptitudes techniques de façon précise et succincte.", 
-        image: "/images/developmentProject/portfolio.jpg", github: "https://github.com/Alexmz1/portfolio" },
-    { id: 2, type: "dev", title: "Fleur de la Seine", description: "Site vitrine développé en pour une fleuriste, mettant en avant des compositions florales pour des événements tels que des deuils. Le site est conçu pour être à la fois esthétique et fonctionnel, offrant une navigation fluide et une présentation claire des services proposés.",
-        image: "/images/developmentProject/fleurDeLaSeine.png", url: "https://fleur-de-la-seine.fr/" },
-    { id: 3, type: "dev", title: "Money Wise", description: "Application de gestion financière personnelle conçue en PHP Symfony. Elle offre aux utilisateurs la possibilité de surveiller leurs revenus et leurs dépenses, et de gérer leur budget. Avec une interface intuitive et des fonctionnalités de filtrage, elle permet une gestion complète de vos finances.", 
-        image: "/images/developmentProject/moneyWise.png", github: "https://github.com/Alexmz1/bank-account" },
-    { id: 4, type: "dev", title: "Sneakers Card", description: "Carte avec un effet 3D interactive inspirée de l’univers des sneakers, développée en Swift. Ce projet met en avant des éléments de design réalistes, et une navigation intuitive pour plonger les utilisateurs dans un univers visuellement attrayant.", 
-        image: "/images/developmentProject/sneakersCard.jpg", github: "https://github.com/Alexmz1/sneakers-world" },
+    {
+        id: 1,
+        type: "dev",
+        title: "Portfolio",
+        description: "Un portfolio individuel créé avec Next.js pour mettre en valeur mes compétences et réalisations. Ce projet propose des animations lisses, une navigation améliorée et une interface utilisateur contemporaine, assurant une expérience immersive pour les visiteurs. Son design minimaliste et épuré valorise les projets, les expériences de travail et les aptitudes techniques de façon précise et succincte.",
+        image: "/images/developmentProject/portfolio.jpg", 
+        github: "https://github.com/Alexmz1/portfolio",
+        stack: {
+            frontend: "Next.js, Tailwind CSS, Daisy UI, Framer Motion",
+            backend: "Statique - Pas de backend",
+            hosting: "Vercel",
+            other : "EmailJS"
+        }
+    },
+    {
+        id: 2,
+        type: "dev",
+        title: "Fleur de la Seine",
+        description: "Site vitrine développé pour une fleuriste, mettant en avant des compositions florales pour des événements tels que des deuils. Le site est conçu pour être à la fois esthétique et fonctionnel, offrant une navigation fluide et une présentation claire des services proposés.",
+        image: "/images/developmentProject/fleurDeLaSeine.png",
+        url: "https://fleur-de-la-seine.fr/",
+        stack: {
+            frontend: "Next.js, Tailwind CSS, Daisy UI",
+            backend: "Statique - Pas de backend",
+            hosting: "Vercel, OVH",
+            other : "EmailJS"
+        }
+    },
+    {
+        id: 3,
+        type: "dev",
+        title: "Money Wise",
+        description: "Application de gestion financière personnelle conçue en PHP Symfony. Elle offre aux utilisateurs la possibilité de surveiller leurs revenus et leurs dépenses, et de gérer leur budget. Avec une interface intuitive et des fonctionnalités de filtrage, elle permet une gestion complète de vos finances.",
+        image: "/images/developmentProject/moneyWise.png",
+        github: "https://github.com/Alexmz1/bank-account",
+        stack: {
+            frontend: "Twig, Tailwind CSS, Daisy UI",
+            backend: "PHP Symfony, Doctrine ORM",
+            database: "MySQL",
+            hosting: "Localhost / à déployer"
+        }
+    },
+    {
+        id: 4,
+        type: "dev",
+        title: "Sneakers Card",
+        description: "Carte avec un effet 3D interactive inspirée de l’univers des sneakers, développée en Swift. Ce projet met en avant des éléments de design réalistes, et une navigation intuitive pour plonger les utilisateurs dans un univers visuellement attrayant.",
+        image: "/images/developmentProject/sneakersCard.jpg",
+        github: "https://github.com/Alexmz1/sneakers-world",
+        stack: {
+            language: "Swift UI",
+            framework: "UIKit",
+            feature: "Effet 3D sur interaction tactile",
+            platform: "iOS"
+        }
+    },
 ];
 
 const designProjects = [
-    { id: 1, type: "design", title: "Vinyle Utopia", description: "Création d’un visuel représentant le vinyle de l'album Utopia de Travis Scott. Chaque élément visuel reflète la créativité et l'univers musical de l'artiste, tout en mettant en avant des détails fins et travaillés.", 
-        image: "/images/designProject/vinyleTravis.jpg" },
-    { id: 2, type: "design", title: "Poster Hamza", description: "Création d'une affiche mettant en avant le rappeur Hamza, en employant un style de scrapbooking. Ce design fusionne des découpes de journaux, des montages et des teintes différents pour illustrer le style distinctif du rappeur. ", 
-        image: "/images/designProject/hamzaPoster.png" },
-    { id: 3, type: "design", title: "Poster Pharrell Williams", description: "Poster de Pharrell Williams, en tant que directeur artistique de Louis Vuitton, façon New York Times. Le design met en avant la vision avant-gardiste de Pharrell dans l'univers de la mode et de la musique, tout en soulignant son impact sur la culture actuelle.", 
-        image: "/images/designProject/pharrellPoster.jpg" },
+    {
+        id: 1,
+        type: "design",
+        title: "Vinyle Utopia",
+        description: "Création d’un visuel représentant le vinyle de l'album Utopia de Travis Scott. Chaque élément visuel reflète la créativité et l'univers musical de l'artiste, tout en mettant en avant des détails fins et travaillés.",
+        image: "/images/designProject/vinyleTravis.jpg"
+    },
+    {
+        id: 2,
+        type: "design",
+        title: "Poster Hamza",
+        description: "Création d'une affiche mettant en avant le rappeur Hamza, en employant un style de scrapbooking. Ce design fusionne des découpes de journaux, des montages et des teintes différents pour illustrer le style distinctif du rappeur.",
+        image: "/images/designProject/hamzaPoster.png"
+    },
+    {
+        id: 3,
+        type: "design",
+        title: "Poster Pharrell Williams",
+        description: "Poster de Pharrell Williams, en tant que directeur artistique de Louis Vuitton, façon New York Times. Le design met en avant la vision avant-gardiste de Pharrell dans l'univers de la mode et de la musique, tout en soulignant son impact sur la culture actuelle.",
+        image: "/images/designProject/pharrellPoster.jpg"
+    },
 ];
 
 function getProjectByIdAndType(id, type) {
@@ -34,6 +98,8 @@ function getProjectByIdAndType(id, type) {
 export default function ProjectDetail() {
     const router = useRouter();
     const { id, type } = router.query;
+
+    const [showStacks, setShowStacks] = useState(false);
 
     if (!id || !type) {
         return (
@@ -71,36 +137,57 @@ export default function ProjectDetail() {
                     {project.title}
                 </h1>
 
-                <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
-                    <div className="flex-shrink-0 w-full lg:w-1/2 mb-6 lg:mb-0">
-                        <img src={project.image} alt={project.title} className="w-full h-auto max-h-96 object-contain rounded-lg"/>
+                <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-start justify-between gap-8">
+                <div className="flex-shrink-0 w-full lg:w-1/2 mb-6 lg:mb-0">
+                        <img src={project.image} alt={project.title} className="w-full h-auto max-h-96 object-contain rounded-lg" />
                     </div>
 
                     <div className="lg:w-1/2 pl-0 lg:pl- self-start">
                         <p className="text-lg mb-8">{project.description}</p>
+
                         {project.type === "dev" && (
-                            <div className="flex flex-col sm:flex-row gap-4">
+                            <div className="flex flex-col sm:flex-row gap-4 mb-8">
                                 {project.url && (
-                                    <a
-                                        href={project.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow-md transition duration-300 hover:bg-purple-800"
-                                    >
+                                    <a href={project.url} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow-md transition duration-300 hover:bg-purple-800">
                                         Voir le site
                                     </a>
                                 )}
                                 {project.github && (
-                                    <a
-                                        href={project.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="px-6 py-3 bg-transparent border border-gray-300 text-white font-semibold rounded-lg shadow-md transition duration-300 hover:bg-white hover:text-black"
-                                    >
+                                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-transparent border border-gray-300 text-white font-semibold rounded-lg shadow-md transition duration-300 hover:bg-white hover:text-black">
                                         Voir sur GitHub
                                     </a>
                                 )}
                             </div>
+                        )}
+
+                        {/* Tableau des stacks techniques */}
+                        {project.type === "dev" && project.stack && (
+                        <div className="mt-6 w-full">
+                            <button onClick={() => setShowStacks(!showStacks)} className="w-full text-left text-lg text-white hover:text-purple-300 transition">
+                                {showStacks ? "Masquer la stack technique ▲" : "Afficher la stack technique ▼"}
+                            </button>
+
+                            {showStacks && (
+                            <div className="overflow-x-auto mt-4">
+                                <table className="table w-full text-sm text-white border border-white border-opacity-30">
+                                <thead>
+                                    <tr className="bg-purple-900 text-white">
+                                    <th className="border border-white border-opacity-30">Catégorie</th>
+                                    <th className="border border-white border-opacity-30">Technologie</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {Object.entries(project.stack).map(([key, value]) => (
+                                    <tr key={key} className="bg-transparent">
+                                        <td className="border border-white border-opacity-30 capitalize">{key.replace(/_/g, " ")}</td>
+                                        <td className="border border-white border-opacity-30">{value}</td>
+                                    </tr>
+                                    ))}
+                                </tbody>
+                                </table>
+                            </div>
+                            )}
+                        </div>
                         )}
                     </div>
                 </div>
